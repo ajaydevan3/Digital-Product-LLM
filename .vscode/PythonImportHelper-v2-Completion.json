@@ -1,0 +1,122 @@
+[
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "mediapipe",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "mediapipe",
+        "description": "mediapipe",
+        "detail": "mediapipe",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "python",
+        "importPath": "mediapipe.tasks",
+        "description": "mediapipe.tasks",
+        "isExtraImport": true,
+        "detail": "mediapipe.tasks",
+        "documentation": {}
+    },
+    {
+        "label": "processors",
+        "importPath": "mediapipe.tasks.python.components",
+        "description": "mediapipe.tasks.python.components",
+        "isExtraImport": true,
+        "detail": "mediapipe.tasks.python.components",
+        "documentation": {}
+    },
+    {
+        "label": "vision",
+        "importPath": "mediapipe.tasks.python",
+        "description": "mediapipe.tasks.python",
+        "isExtraImport": true,
+        "detail": "mediapipe.tasks.python",
+        "documentation": {}
+    },
+    {
+        "label": "generate_instructions",
+        "kind": 2,
+        "importPath": "Backend.app",
+        "description": "Backend.app",
+        "peekOfCode": "def generate_instructions():\n    if 'screenshots' not in request.files or len(request.files.getlist('screenshots')) == 0:\n        return jsonify({'error': 'No files uploaded.'}), 400\n    images = []\n    predictions = []\n    try:\n        # Iterate through uploaded files\n        for file in request.files.getlist('screenshots'):\n            # Save each file temporarily\n            file_path = os.path.join(UPLOAD_FOLDER, file.filename)",
+        "detail": "Backend.app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "Backend.app",
+        "description": "Backend.app",
+        "peekOfCode": "app = Flask(__name__)\n# Initialize the ImageClassifier once\nbase_options = python.BaseOptions(model_asset_path='classifier.tflite')\noptions = vision.ImageClassifierOptions(\n    base_options=base_options, max_results=4)\nclassifier = vision.ImageClassifier.create_from_options(options)\n# Define the upload folder path\nUPLOAD_FOLDER = 'uploads/'\nos.makedirs(UPLOAD_FOLDER, exist_ok=True)\n@app.route('/generate-instructions', methods=['POST'])",
+        "detail": "Backend.app",
+        "documentation": {}
+    },
+    {
+        "label": "base_options",
+        "kind": 5,
+        "importPath": "Backend.app",
+        "description": "Backend.app",
+        "peekOfCode": "base_options = python.BaseOptions(model_asset_path='classifier.tflite')\noptions = vision.ImageClassifierOptions(\n    base_options=base_options, max_results=4)\nclassifier = vision.ImageClassifier.create_from_options(options)\n# Define the upload folder path\nUPLOAD_FOLDER = 'uploads/'\nos.makedirs(UPLOAD_FOLDER, exist_ok=True)\n@app.route('/generate-instructions', methods=['POST'])\ndef generate_instructions():\n    if 'screenshots' not in request.files or len(request.files.getlist('screenshots')) == 0:",
+        "detail": "Backend.app",
+        "documentation": {}
+    },
+    {
+        "label": "options",
+        "kind": 5,
+        "importPath": "Backend.app",
+        "description": "Backend.app",
+        "peekOfCode": "options = vision.ImageClassifierOptions(\n    base_options=base_options, max_results=4)\nclassifier = vision.ImageClassifier.create_from_options(options)\n# Define the upload folder path\nUPLOAD_FOLDER = 'uploads/'\nos.makedirs(UPLOAD_FOLDER, exist_ok=True)\n@app.route('/generate-instructions', methods=['POST'])\ndef generate_instructions():\n    if 'screenshots' not in request.files or len(request.files.getlist('screenshots')) == 0:\n        return jsonify({'error': 'No files uploaded.'}), 400",
+        "detail": "Backend.app",
+        "documentation": {}
+    },
+    {
+        "label": "classifier",
+        "kind": 5,
+        "importPath": "Backend.app",
+        "description": "Backend.app",
+        "peekOfCode": "classifier = vision.ImageClassifier.create_from_options(options)\n# Define the upload folder path\nUPLOAD_FOLDER = 'uploads/'\nos.makedirs(UPLOAD_FOLDER, exist_ok=True)\n@app.route('/generate-instructions', methods=['POST'])\ndef generate_instructions():\n    if 'screenshots' not in request.files or len(request.files.getlist('screenshots')) == 0:\n        return jsonify({'error': 'No files uploaded.'}), 400\n    images = []\n    predictions = []",
+        "detail": "Backend.app",
+        "documentation": {}
+    },
+    {
+        "label": "UPLOAD_FOLDER",
+        "kind": 5,
+        "importPath": "Backend.app",
+        "description": "Backend.app",
+        "peekOfCode": "UPLOAD_FOLDER = 'uploads/'\nos.makedirs(UPLOAD_FOLDER, exist_ok=True)\n@app.route('/generate-instructions', methods=['POST'])\ndef generate_instructions():\n    if 'screenshots' not in request.files or len(request.files.getlist('screenshots')) == 0:\n        return jsonify({'error': 'No files uploaded.'}), 400\n    images = []\n    predictions = []\n    try:\n        # Iterate through uploaded files",
+        "detail": "Backend.app",
+        "documentation": {}
+    }
+]
